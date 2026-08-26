@@ -1,0 +1,16 @@
+{
+  "firebaseConfig": {
+    "apiKey": "AIzaSyCkFXJ-2nankK4Bib1doqaFcHmweZnNaqk",
+    "authDomain": "cracktech-ext.firebaseapp.com",
+    "databaseURL": "https://cracktech-ext-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "projectId": "cracktech-ext",
+    "storageBucket": "cracktech-ext.firebasestorage.app",
+    "messagingSenderId": "259670715226",
+    "appId": "1:259670715226:web:bd19df5311b8eb61f12163",
+    "measurementId": "G-ZS662YT2YD"
+  },
+  "questionType": "both",
+  "totalRounds": 12,
+  "scorePerQuestion": 1,
+  "noHintBonus": 0.25
+}

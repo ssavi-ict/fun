@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case File: Is This AI Generated?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Social Media Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="masthead-left">
+      <span class="case-mark">⌗</span>
+      <div>
+        <h1>Case File — Is This AI&nbsp;Generated?</h1>
+        <p class="subtitle">Elementary, my dear Watson — not every crime is committed by a human.</p>
+      </div>
+    </div>
+    <label class="switch">
+      <span class="switch-label" id="theme-label">Night review</span>
+      <input type="checkbox" id="theme-toggle">
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <main class="wrapper">
+
+    <section class="col-1" aria-labelledby="guide-heading">
+      <h2 id="guide-heading">Field Guide</h2>
+      <ol id="guidelines">
+        <li><span class="tag">01</span>Check for unnatural hands or eyes in images.</li>
+        <li><span class="tag">02</span>Look for repetitive textures or patterns.</li>
+        <li><span class="tag">03</span>Notice overly perfect or sterile lighting.</li>
+        <li><span class="tag">04</span>Check for bizarre logical errors in text.</li>
+        <li><span class="tag">05</span>Look for inconsistent shadows.</li>
+      </ol>
+    </section>
+
+    <section class="col-2" aria-labelledby="evidence-heading">
+      <h2 id="evidence-heading" class="visually-hidden">Evidence</h2>
+      <div class="evidence-frame">
+        <span class="evidence-number">EVIDENCE #<span id="item-number">01</span></span>
+        <div class="card">
+          <div id="content-container">
+            <img id="game-image" class="game-image" src="" alt="Game content" style="display:none;">
+            <p id="game-text" class="game-text" style="display:none;"></p>
+          </div>
+          <button id="expand-btn" class="expand-btn" type="button" aria-label="Enlarge image" style="display:none;">⤢</button>
+          <div id="stamp" class="stamp"></div>
+        </div>
+      </div>
+
+      <p class="question-text">Is this content AI-generated?</p>
+      <div class="buttons">
+        <button id="no-btn" type="button"><span class="key-hint">H</span>Human-made</button>
+        <button id="yes-btn" type="button"><span class="key-hint">A</span>AI-generated</button>
+      </div>
+      <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+      <div id="bonus-toast" class="bonus-toast" aria-live="polite"></div>
+      <button id="hint-btn" class="btn-hint" type="button">
+        <span class="hint-tag">HINT</span>
+        <span class="hint-copy">Bag extra 0.25 points for solving without a hint.</span>
+      </button>
+      <p id="hint" class="hint"></p>
+    </section>
+
+    <aside class="col-3" aria-labelledby="log-heading">
+      <h2 id="log-heading">Case Log</h2>
+
+      <div class="stat-block reviewing-block">
+        <span class="stat-label"><span id="live-dot" class="live-dot"></span>Reviewing now</span>
+        <span class="stat-value" id="players-online">1</span>
+      </div>
+
+      <div class="stat-block">
+        <span class="stat-label">Attempted</span>
+        <span class="stat-value"><span id="attempt-count">0</span> / <span id="total-rounds">12</span></span>
+      </div>
+      <div class="progress-track" aria-hidden="true">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+
+      <div class="stat-block">
+        <span class="stat-label">Score</span>
+        <span class="stat-value" id="score-value">0</span>
+      </div>
+
+      <button id="reset-btn" class="btn-reset" type="button">Reopen case</button>
+    </aside>
+
+  </main>
+
+  <div id="image-modal" class="modal-overlay" hidden>
+    <div class="modal-content">
+      <button id="modal-close" class="modal-close" type="button" aria-label="Close enlarged image">×</button>
+      <img id="modal-image" src="" alt="Enlarged evidence image">
+    </div>
+  </div>
+
+  <!-- Congratulations Completion Modal -->
+  <div id="congrats-modal" class="modal-overlay" hidden>
+    <div class="congrats-card">
+      <button id="congrats-close" class="modal-close" type="button" aria-label="Close modal">×</button>
+      <div class="badge-icon">🏆</div>
+      <h2 class="congrats-title">Case Closed!</h2>
+      <p class="congrats-subtitle">You have completed all evidence reviews.</p>
+
+      <div class="final-score-container">
+        <span class="final-score-label">FINAL SCORE</span>
+        <span id="final-score-display" class="final-score-value">0</span>
+      </div>
+
+      <p class="play-now-phrase">Had fun? Invite your friends to <strong>Play</strong>!</p>
+
+      <div class="share-section">
+        <span class="share-label">Sharing is caring</span>
+        <div class="share-buttons">
+          <button id="share-fb" class="share-btn fb" type="button" aria-label="Share on Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </button>
+          <button id="share-wa" class="share-btn wa" type="button" aria-label="Share on WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </button>
+          <button id="share-x" class="share-btn x-twitter" type="button" aria-label="Share on X">
+            <i class="fa-brands fa-x-twitter"></i>
+          </button>
+          <button id="share-copy" class="share-btn copy" type="button" aria-label="Copy link">
+            <i class="fa-solid fa-link"></i>
+          </button>
+        </div>
+      </div>
+
+      <button id="modal-reset-btn" class="btn-play-again" type="button">Play Again</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <hr>
+    <p class="credit-line">Made with <span class="heart">❤︎</span> by Avik Sarkar</p>
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-database-compat.js"></script>
+  <script src="scripts/app.js"></script>
+</body>
+</html>

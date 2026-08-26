@@ -1,0 +1,50 @@
+{
+  "text_01": {
+    "type": "text",
+    "text": "The cat jumped over the moon with unexpected grace.",
+    "label": "human",
+    "hint": "Common, plainly human sentence structure."
+  },
+  "text_02": {
+    "type": "text",
+    "text": "The quantum flux capacitor initialized the neural network pipeline.",
+    "label": "ai",
+    "hint": "Dense tech-jargon clusters are a common AI tell."
+  },
+  "text_03": {
+    "type": "text",
+    "text": "I went to the store today to buy some apples, but they were all out.",
+    "label": "human",
+    "hint": "Casual conversational flow with mundane context."
+  },
+  "text_04": {
+    "type": "text",
+    "text": "In conclusion, it is important to remember that efficiency is paramount.",
+    "label": "ai",
+    "hint": "Overly formal transitional phrases are typical of language models."
+  },
+  "image_01": {
+    "type": "image",
+    "src": "https://images.unsplash.com/photo-1506973037972-a4dc96959e50?auto=format&fit=crop&w=800&q=80",
+    "label": "human",
+    "hint": "Look at the natural lighting variations and slight imperfections."
+  },
+  "image_02": {
+    "type": "image",
+    "src": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
+    "label": "human",
+    "hint": "Check the symmetry and micro-expressions in the eyes."
+  },
+  "image_03": {
+    "type": "image",
+    "src": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+    "label": "human",
+    "hint": "Examine natural hair strands and depth of field blur."
+  },
+  "image_04": {
+    "type": "image",
+    "src": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80",
+    "label": "human",
+    "hint": "Notice authentic fabric texture and realistic shadow soft edges."
+  }
+}
