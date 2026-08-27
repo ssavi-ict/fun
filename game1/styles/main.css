@@ -139,16 +139,38 @@ body {
   margin-bottom: 16px;
 }
 
-/* Field guide list */
-#guidelines { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-#guidelines li {
-  font-size: 0.88rem;
+/* Category subheadings */
+.guide-category {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+  margin: 18px 0 10px 0;
+}
+
+.guide-category:not(:first-of-type) {
+  margin-top: 50px; /* Adjust this pixel value to increase/decrease the gap */
+}
+
+/* Field guide lists */
+.guidelines { 
+  list-style: none; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 14px; 
+}
+
+.guidelines li {
+  font-size: 0.80rem;
   line-height: 1.4;
   color: var(--ink);
   display: flex;
   gap: 10px;
 }
-#guidelines .tag {
+
+.guidelines .tag {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   color: var(--accent);
