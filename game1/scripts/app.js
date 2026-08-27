@@ -275,8 +275,8 @@ document.addEventListener('keydown', (e) => {
   // Ignore keyboard hotkeys if focus is inside an input field
   if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
 
-  if (e.key === 'a' || e.key === 'A') checkAnswer(true);
-  if (e.key === 'h' || e.key === 'H') checkAnswer(false);
+  if (e.key === 'y' || e.key === 'Y') checkAnswer(true);
+  if (e.key === 'n' || e.key === 'N') checkAnswer(false);
   if (e.key === 'Escape') {
     if (!modalOverlay.hidden) closeModal();
     if (!congratsModal.hidden) hideCongratsModal();
