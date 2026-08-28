@@ -9,7 +9,8 @@ let config = {
   noHintBonus: 0.25
 };
 
-let activeSessionQuestions = [];
+let activeSessionQuestions = JSON.parse(sessionStorage.getItem('activeSessionQuestions')) || [];
+let unlockedHints = JSON.parse(sessionStorage.getItem('unlockedHints')) || [];
 let score = parseFloat(sessionStorage.getItem('score')) || 0;
 let attempts = parseInt(sessionStorage.getItem('attempts')) || 0;
 let currentItem = null;
@@ -22,6 +23,7 @@ const attemptEl = document.getElementById('attempt-count');
 const totalRoundsEl = document.getElementById('total-rounds');
 const feedbackEl = document.getElementById('feedback');
 const hintEl = document.getElementById('hint');
+const boardHintDisplayEl = document.getElementById('board-hint-display');
 const imageEl = document.getElementById('game-image');
 const textEl = document.getElementById('game-text');
 const stampEl = document.getElementById('stamp');
@@ -33,6 +35,7 @@ const noBtn = document.getElementById('no-btn');
 const hintBtn = document.getElementById('hint-btn');
 const bonusToastEl = document.getElementById('bonus-toast');
 const expandBtn = document.getElementById('expand-btn');
+const hintBoardNotesEl = document.getElementById('hint-board-notes');
 
 // Modal Elements
 const modalOverlay = document.getElementById('image-modal');
@@ -67,9 +70,15 @@ async function initApp() {
     const allQuestions = await questionsRes.json();
 
     totalRoundsEl.textContent = config.totalRounds;
-    prepareQuestions(allQuestions);
+
+    // Only generate new questions if none are saved in session
+    if (!activeSessionQuestions || activeSessionQuestions.length === 0) {
+      prepareQuestions(allQuestions);
+    }
+
     initPresence();
     updateUI();
+    renderHintBoard();
     loadItem();
   } catch (err) {
     console.error('Initialization error:', err);
@@ -97,6 +106,51 @@ function prepareQuestions(questionsMap) {
   }
 
   activeSessionQuestions = shuffled.slice(0, config.totalRounds);
+  sessionStorage.setItem('activeSessionQuestions', JSON.stringify(activeSessionQuestions));
+}
+
+// ============================================================================
+// Hint Board Controller
+// ============================================================================
+function renderHintBoard() {
+  if (!hintBoardNotesEl) return;
+  hintBoardNotesEl.innerHTML = '';
+
+  const totalRounds = config.totalRounds || 12;
+
+  for (let i = 0; i < totalRounds; i++) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'sticky-note-btn';
+    btn.id = `sticky-note-${i}`;
+    btn.textContent = String(i + 1).padStart(2, '0');
+
+    // Unlocked if question was attempted OR if user requested hint before answering
+    const isUnlocked = i < attempts || unlockedHints.includes(i);
+
+    if (isUnlocked) {
+      btn.classList.add('unlocked');
+      btn.title = `Click to view Hint #${i + 1}`;
+      btn.addEventListener('click', () => showHistoricalHint(i));
+    } else {
+      btn.title = 'Locked — Attempt question or request hint to unlock';
+      btn.disabled = true;
+    }
+
+    hintBoardNotesEl.appendChild(btn);
+  }
+}
+
+function showHistoricalHint(index) {
+  document.querySelectorAll('.sticky-note-btn').forEach(btn => btn.classList.remove('active-note'));
+  const activeBtn = document.getElementById(`sticky-note-${index}`);
+  if (activeBtn) activeBtn.classList.add('active-note');
+
+  if (activeSessionQuestions && activeSessionQuestions[index] && activeSessionQuestions[index].hint) {
+    if (boardHintDisplayEl) {
+      boardHintDisplayEl.textContent = `Hint #${index + 1}: ${activeSessionQuestions[index].hint}`;
+    }
+  }
 }
 
 // ============================================================================
@@ -183,6 +237,7 @@ function checkAnswer(isYes) {
   stampEl.classList.add('show');
   attempts++;
   updateUI();
+  renderHintBoard();
 
   setTimeout(() => {
     if (attempts < config.totalRounds) {
@@ -257,13 +312,24 @@ hintBtn.onclick = () => {
   hintUsed = true;
   hintEl.textContent = `Hint: ${currentItem.hint}`;
   hintBtn.classList.add('hidden');
+
+  if (!unlockedHints.includes(attempts)) {
+    unlockedHints.push(attempts);
+    sessionStorage.setItem('unlockedHints', JSON.stringify(unlockedHints));
+    renderHintBoard();
+  }
 };
 
 function resetGame() {
   score = 0;
   attempts = 0;
+  activeSessionQuestions = [];
+  unlockedHints = [];
   sessionStorage.removeItem('score');
   sessionStorage.removeItem('attempts');
+  sessionStorage.removeItem('activeSessionQuestions');
+  sessionStorage.removeItem('unlockedHints');
+  if (boardHintDisplayEl) boardHintDisplayEl.textContent = '';
   hideCongratsModal();
   initApp();
 }
@@ -272,7 +338,6 @@ document.getElementById('reset-btn').onclick = resetGame;
 modalResetBtn.onclick = resetGame;
 
 document.addEventListener('keydown', (e) => {
-  // Ignore keyboard hotkeys if focus is inside an input field
   if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
 
   if (e.key === 'y' || e.key === 'Y') checkAnswer(true);

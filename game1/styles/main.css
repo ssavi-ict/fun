@@ -662,3 +662,110 @@ body.dark-mode .share-btn.x-twitter { background: #2F3336; border: 1px solid var
   button:hover { transform: none; }
   .congrats-card { animation: none; }
 }
+
+/* Update maximum layout width to expand the whole area horizontally */
+.masthead,
+.wrapper,
+.footer {
+  max-width: 1060px;
+}
+
+/* Ensure column 2 grows smoothly to accommodate the new hint board */
+.col-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 580px;
+}
+
+/* ==========================================================================
+   Hint Board Component
+   ========================================================================== */
+.hint-board-container {
+  width: 100%;
+  margin-top: 18px;
+  padding: 12px 14px;
+  background: var(--paper);
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+}
+
+.hint-board-title {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.8rem; /* Increased size */
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center; /* Centered */
+}
+
+/* Display element for hints clicked from the Hint Board */
+.board-hint-display {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink);
+  text-align: center;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line);
+  min-height: 1.2rem;
+  word-break: break-word;
+}
+
+.hint-board-notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Sticky Note Items */
+.sticky-note-btn {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: not-allowed;
+  background: var(--paper-raised);
+  color: var(--ink-soft);
+  opacity: 0.5;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+/* Unlocked Sticky Note (When Attempted) */
+.sticky-note-btn.unlocked {
+  opacity: 1;
+  background: #fef08a; /* Sticky note yellow */
+  color: #854d0e;
+  border-color: #fde047;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+body.dark-mode .sticky-note-btn.unlocked {
+  background: #854d0e;
+  color: #fef08a;
+  border-color: #a16207;
+}
+
+.sticky-note-btn.unlocked:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.sticky-note-btn.active-note {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
