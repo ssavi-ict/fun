@@ -41,7 +41,7 @@ body {
   font-family: var(--font-body);
   background-color: var(--paper);
   color: var(--ink);
-  min-height: 100vh;
+  min-height: 110vh;
   padding: 32px 20px 60px;
   transition: background-color 0.25s ease, color 0.25s ease;
 }
@@ -113,10 +113,10 @@ body {
    Wrapper / layout — 25:55:20 case-file grid
    ========================================================================== */
 .wrapper {
-  max-width: 1060px;
+  max-width: 1080px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 2.2fr 0.85fr;
+  grid-template-columns: 1.2fr 2.5fr 0.90fr;
   gap: 1px;
   background: var(--line);
   border: 1px solid var(--line);
@@ -202,7 +202,7 @@ body {
 .card {
   position: relative;
   width: 100%;
-  height: 260px;
+  height: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -796,4 +796,17 @@ body.dark-mode .share-btn.x-twitter { background: #2F3336; border: 1px solid var
   .live-dot { animation: none; }
   button:hover { transform: none; }
   .congrats-card { animation: none; }
+}
+
+/* Update the container layout if it currently uses space-between */
+li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px; /* Controls space between the tag (01) and the text */
+}
+
+/* Ensure anchor tags display inline with surrounding text */
+li a {
+  display: inline;
+  margin-left: 4px; /* Optional: adds a slight gap before the link icon */
 }
