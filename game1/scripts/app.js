@@ -16,6 +16,12 @@ let attempts = parseInt(sessionStorage.getItem('attempts')) || 0;
 let currentItem = null;
 let answering = false;
 let hintUsed = false;
+let playStartedTracked = sessionStorage.getItem('playStartedTracked') === 'true'; // Tracks if current game start was logged
+
+// Realtime Presence Guards
+let presenceRef = null;
+let myPresenceRef = null;
+let presenceInitialized = false;
 
 // DOM Elements
 const scoreEl = document.getElementById('score-value');
@@ -30,6 +36,7 @@ const stampEl = document.getElementById('stamp');
 const progressFill = document.getElementById('progress-fill');
 const itemNumberEl = document.getElementById('item-number');
 const playersOnlineEl = document.getElementById('players-online');
+const totalPlaysEl = document.getElementById('total-plays');
 const yesBtn = document.getElementById('yes-btn');
 const noBtn = document.getElementById('no-btn');
 const hintBtn = document.getElementById('hint-btn');
@@ -76,7 +83,7 @@ async function initApp() {
       prepareQuestions(allQuestions);
     }
 
-    initPresence();
+    initPresenceAndStats();
     updateUI();
     renderHintBoard();
     loadItem();
@@ -160,7 +167,7 @@ function updateUI() {
   scoreEl.textContent = Number.isInteger(score) ? score : score.toFixed(2);
   attemptEl.textContent = attempts;
   progressFill.style.width = `${Math.min(attempts / config.totalRounds, 1) * 100}%`;
-  itemNumberEl.textContent = String(attempts + 1).padStart(2, '0');
+  itemNumberEl.textContent = String(Math.min(attempts + 1, config.totalRounds)).padStart(2, '0');
   
   sessionStorage.setItem('score', score);
   sessionStorage.setItem('attempts', attempts);
@@ -211,6 +218,13 @@ function loadItem() {
 function checkAnswer(isYes) {
   if (attempts >= config.totalRounds || answering) return;
   answering = true;
+
+  // Track total plays when the user attempts Question 1 for the first time
+  if (!playStartedTracked) {
+    playStartedTracked = true;
+    sessionStorage.setItem('playStartedTracked', 'true');
+    incrementTotalPlays();
+  }
 
   const answer = isYes ? 'ai' : 'human';
   const correct = answer === currentItem.label;
@@ -325,10 +339,12 @@ function resetGame() {
   attempts = 0;
   activeSessionQuestions = [];
   unlockedHints = [];
+  playStartedTracked = false;
   sessionStorage.removeItem('score');
   sessionStorage.removeItem('attempts');
   sessionStorage.removeItem('activeSessionQuestions');
   sessionStorage.removeItem('unlockedHints');
+  sessionStorage.removeItem('playStartedTracked');
   if (boardHintDisplayEl) boardHintDisplayEl.textContent = '';
   hideCongratsModal();
   initApp();
@@ -395,37 +411,79 @@ themeToggle.addEventListener('change', () => {
 });
 
 // ============================================================================
-// Realtime Presence (Firebase)
+// Realtime Presence & Global Stats (Firebase & Local Fallback)
 // ============================================================================
 function isFirebaseConfigured(cfg) {
   return cfg && cfg.apiKey && !cfg.apiKey.startsWith('YOUR_');
 }
 
-function initPresence() {
+function initPresenceAndStats() {
+  // Load local count initially so it doesn't revert to 0 on page refresh
+  const savedLocalPlays = localStorage.getItem('local_total_plays') || '0';
+  if (totalPlaysEl) totalPlaysEl.textContent = savedLocalPlays;
+
   if (typeof firebase === 'undefined' || !isFirebaseConfigured(config.firebaseConfig)) {
-    playersOnlineEl.textContent = '1';
+    if (playersOnlineEl) playersOnlineEl.textContent = '1';
     return;
   }
+
+  // Prevent creating duplicate presence connections when restarting the game state
+  if (presenceInitialized) return;
+
   try {
-    firebase.initializeApp(config.firebaseConfig);
+    if (!firebase.apps.length) {
+      firebase.initializeApp(config.firebaseConfig);
+    }
     const db = firebase.database();
     
-    const presenceRef = db.ref('games/is_this_ai/presence');
-    const myRef = presenceRef.push();
+    // Live Presence Setup
+    presenceRef = db.ref('games/is_this_ai/presence');
+    myPresenceRef = presenceRef.push();
 
     db.ref('.info/connected').on('value', (snap) => {
       if (snap.val() === true) {
-        myRef.onDisconnect().remove();
-        myRef.set(true);
+        myPresenceRef.onDisconnect().remove();
+        myPresenceRef.set(true);
       }
     });
 
     presenceRef.on('value', (snap) => {
-      playersOnlineEl.textContent = snap.numChildren() || 1;
+      if (playersOnlineEl) playersOnlineEl.textContent = snap.numChildren() || 1;
     });
+
+    // Total Played Global Counter
+    const totalPlaysRef = db.ref('games/is_this_ai/total_plays');
+    totalPlaysRef.on('value', (snap) => {
+      const globalCount = snap.val() || 0;
+      if (totalPlaysEl) totalPlaysEl.textContent = globalCount;
+      localStorage.setItem('local_total_plays', globalCount);
+    });
+
+    // Mark presence connection as active for this browser tab
+    presenceInitialized = true;
   } catch (err) {
-    console.warn('Presence system offline, using fallback.', err);
-    playersOnlineEl.textContent = '1';
+    console.warn('Firebase system offline, using local fallback.', err);
+    if (playersOnlineEl) playersOnlineEl.textContent = '1';
+  }
+}
+
+function incrementTotalPlays() {
+  // Update local display and localStorage immediately
+  const currentLocal = parseInt(localStorage.getItem('local_total_plays') || '0', 10);
+  const newCount = currentLocal + 1;
+  localStorage.setItem('local_total_plays', newCount);
+  if (totalPlaysEl) totalPlaysEl.textContent = newCount;
+
+  // Transactionally update Firebase database globally across all users
+  if (typeof firebase !== 'undefined' && isFirebaseConfigured(config.firebaseConfig)) {
+    try {
+      const totalPlaysRef = firebase.database().ref('games/is_this_ai/total_plays');
+      totalPlaysRef.transaction((currentCount) => {
+        return (currentCount || 0) + 1;
+      });
+    } catch (err) {
+      console.warn('Failed to update global total plays stats in Firebase:', err);
+    }
   }
 }
 

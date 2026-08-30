@@ -62,8 +62,8 @@
 
       <p class="question-text">Is this content AI-generated?</p>
       <div class="buttons">
-        <button id="no-btn" type="button"><span class="key-hint">Y</span>YES</button>
-        <button id="yes-btn" type="button"><span class="key-hint">N</span>NO</button>
+        <button id="yes-btn" type="button"><span class="key-hint">Y</span>YES</button>
+        <button id="no-btn" type="button"><span class="key-hint">N</span>NO</button>
       </div>
       <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
       <div id="bonus-toast" class="bonus-toast" aria-live="polite"></div>
@@ -100,7 +100,14 @@
         <span class="stat-value" id="score-value">0</span>
       </div>
 
-      <button id="reset-btn" class="btn-reset" type="button">Reopen case</button>
+      <div class="col-3-bottom">
+        <div class="stat-block">
+          <span class="stat-label">Total Played</span>
+          <span class="stat-value" id="total-plays">0</span>
+        </div>
+
+        <button id="reset-btn" class="btn-reset" type="button">Reopen case</button>
+      </div>
     </aside>
 
   </main>

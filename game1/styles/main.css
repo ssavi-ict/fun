@@ -55,7 +55,7 @@ body {
    Masthead
    ========================================================================== */
 .masthead {
-  max-width: 980px;
+  max-width: 1060px;
   margin: 0 auto 28px;
   display: flex;
   align-items: center;
@@ -113,7 +113,7 @@ body {
    Wrapper / layout — 25:55:20 case-file grid
    ========================================================================== */
 .wrapper {
-  max-width: 980px;
+  max-width: 1060px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 2.2fr 0.85fr;
@@ -151,7 +151,7 @@ body {
 }
 
 .guide-category:not(:first-of-type) {
-  margin-top: 50px; /* Adjust this pixel value to increase/decrease the gap */
+  margin-top: 50px;
 }
 
 /* Field guide lists */
@@ -181,7 +181,12 @@ body {
 /* ==========================================================================
    Evidence column
    ========================================================================== */
-.col-2 { display: flex; flex-direction: column; align-items: center; }
+.col-2 { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  min-height: 580px;
+}
 
 .evidence-frame { width: 100%; }
 
@@ -208,16 +213,39 @@ body {
   margin-bottom: 22px;
 }
 
-#content-container { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+#content-container { 
+  width: 100%; 
+  height: 100%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  overflow: hidden;
+}
 
 .game-image { width: 100%; height: 100%; object-fit: fill; display: block; }
 .game-text {
   font-family: var(--font-display);
-  font-size: 1.3rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem); /* Dynamically shrinks font size for longer text */
   font-weight: 500;
-  padding: 30px;
+  padding: 20px;
   text-align: center;
   color: var(--ink);
+  
+  /* Text overflow handling */
+  max-height: 100%;
+  overflow-y: auto;          /* Adds smooth internal scrolling if text exceeds height */
+  word-break: break-word;     /* Prevents single long words from breaking out horizontally */
+  overflow-wrap: break-word;
+  line-height: 1.4;
+}
+
+/* Custom subtle scrollbar for the text box */
+.game-text::-webkit-scrollbar {
+  width: 4px;
+}
+.game-text::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 4px;
 }
 
 /* Stamp — the signature moment */
@@ -416,7 +444,24 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 /* ==========================================================================
    Case log column
    ========================================================================== */
-.col-3 { display: flex; flex-direction: column; gap: 14px; }
+.col-3 { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 14px; 
+  height: 100%;
+}
+
+.col-3-bottom {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.col-3-bottom .btn-reset {
+  margin-top: 0;
+  width: 100%;
+}
 
 .stat-block {
   display: flex;
@@ -482,6 +527,95 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   justify-content: center;
 }
 .btn-reset:hover { color: var(--flagged); border-color: var(--flagged); }
+
+/* ==========================================================================
+   Hint Board Component
+   ========================================================================== */
+.hint-board-container {
+  width: 100%;
+  margin-top: 18px;
+  padding: 12px 14px;
+  background: var(--paper);
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+}
+
+.hint-board-title {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+}
+
+.board-hint-display {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink);
+  text-align: center;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line);
+  min-height: 1.2rem;
+  word-break: break-word;
+}
+
+.hint-board-notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.sticky-note-btn {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: not-allowed;
+  background: var(--paper-raised);
+  color: var(--ink-soft);
+  opacity: 0.5;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.sticky-note-btn.unlocked {
+  opacity: 1;
+  background: #fef08a;
+  color: #854d0e;
+  border-color: #fde047;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+body.dark-mode .sticky-note-btn.unlocked {
+  background: #854d0e;
+  color: #fef08a;
+  border-color: #a16207;
+}
+
+.sticky-note-btn.unlocked:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.sticky-note-btn.active-note {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
 
 /* ==========================================================================
    Congrats Popup Card
@@ -626,7 +760,7 @@ body.dark-mode .share-btn.x-twitter { background: #2F3336; border: 1px solid var
    Footer
    ========================================================================== */
 .footer {
-  max-width: 980px;
+  max-width: 1060px;
   margin: 28px auto 0;
   text-align: center;
   font-family: var(--font-mono);
@@ -649,11 +783,12 @@ body.dark-mode .share-btn.x-twitter { background: #2F3336; border: 1px solid var
 }
 
 /* ==========================================================================
-   Responsive
+   Responsive & Accessibility
    ========================================================================== */
 @media (max-width: 860px) {
   .wrapper { grid-template-columns: 1fr; }
   .col-3 { flex-direction: column; }
+  .col-3-bottom { margin-top: 14px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -661,111 +796,4 @@ body.dark-mode .share-btn.x-twitter { background: #2F3336; border: 1px solid var
   .live-dot { animation: none; }
   button:hover { transform: none; }
   .congrats-card { animation: none; }
-}
-
-/* Update maximum layout width to expand the whole area horizontally */
-.masthead,
-.wrapper,
-.footer {
-  max-width: 1060px;
-}
-
-/* Ensure column 2 grows smoothly to accommodate the new hint board */
-.col-2 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 580px;
-}
-
-/* ==========================================================================
-   Hint Board Component
-   ========================================================================== */
-.hint-board-container {
-  width: 100%;
-  margin-top: 18px;
-  padding: 12px 14px;
-  background: var(--paper);
-  border: 1px dashed var(--line);
-  border-radius: 10px;
-}
-
-.hint-board-title {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 0.8rem; /* Increased size */
-  letter-spacing: 0.12em;
-  color: var(--ink-soft);
-  margin-bottom: 12px;
-  text-transform: uppercase;
-  font-weight: 700;
-  text-align: center; /* Centered */
-}
-
-/* Display element for hints clicked from the Hint Board */
-.board-hint-display {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--ink);
-  text-align: center;
-  margin-top: 12px;
-  padding-top: 10px;
-  border-top: 1px dashed var(--line);
-  min-height: 1.2rem;
-  word-break: break-word;
-}
-
-.hint-board-notes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-/* Sticky Note Items */
-.sticky-note-btn {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 600;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  border-radius: 6px;
-  border: 1px solid var(--line);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: not-allowed;
-  background: var(--paper-raised);
-  color: var(--ink-soft);
-  opacity: 0.5;
-  transition: all 0.2s ease;
-  user-select: none;
-}
-
-/* Unlocked Sticky Note (When Attempted) */
-.sticky-note-btn.unlocked {
-  opacity: 1;
-  background: #fef08a; /* Sticky note yellow */
-  color: #854d0e;
-  border-color: #fde047;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
-}
-
-body.dark-mode .sticky-note-btn.unlocked {
-  background: #854d0e;
-  color: #fef08a;
-  border-color: #a16207;
-}
-
-.sticky-note-btn.unlocked:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
-}
-
-.sticky-note-btn.active-note {
-  outline: 2px solid var(--accent);
-  outline-offset: 1px;
 }

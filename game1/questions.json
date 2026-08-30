@@ -1,50 +1,482 @@
 {
   "text_01": {
     "type": "text",
-    "text": "The cat jumped over the moon with unexpected grace.",
+    "text": "Overcome by exhaustion, prostrated by grief, the poor fellow was hardly recognizable.",
     "label": "human",
-    "hint": "Common, plainly human sentence structure."
+    "hint": "This text was written by a famous scienece fiction author."
   },
   "text_02": {
     "type": "text",
-    "text": "The quantum flux capacitor initialized the neural network pipeline.",
-    "label": "ai",
-    "hint": "Dense tech-jargon clusters are a common AI tell."
+    "text": "A hundred paces off he found a clear brook swollen by the late rains and filtered by the sand.",
+    "label": "human",
+    "hint": "This text was written by a famous scienece fiction author."
   },
   "text_03": {
     "type": "text",
-    "text": "I went to the store today to buy some apples, but they were all out.",
+    "text": "The drops of fresh water produced an instantaneous effect.",
     "label": "human",
-    "hint": "Casual conversational flow with mundane context."
+    "hint": "This text was written by a famous scienece fiction author."
   },
   "text_04": {
     "type": "text",
-    "text": "In conclusion, it is important to remember that efficiency is paramount.",
+    "text": "He removed the clothing from his master to see if his body was anywhere wounded.",
+    "label": "human",
+    "hint": "This text was written by a famous scienece fiction author."
+  },
+  "text_05": {
+    "type": "text",
+    "text": "He searched the shore, the rocks, the sand for any marks that could guide him.",
+    "label": "human",
+    "hint": "This text was written by a famous scienece fiction author."
+  },
+  "text_06": {
+    "type": "text",
+    "text": "It seemed as if nothing human had ever been upon that desolate shore.",
+    "label": "human",
+    "hint": "This text was written by a famous scienece fiction author."
+  },
+  "text_07": {
+    "type": "text",
+    "text": "I discovered footprints upon the sand.",
+    "label": "human",
+    "hint": "This text was written by a famous scienece fiction author."
+  },
+  "text_08": {
+    "type": "text",
+    "text": "They were very plain, and went towards the downs.",
+    "label": "human",
+    "hint": "This text was written by a famous scienece fiction author."
+  },
+  "text_09": {
+    "type": "text",
+    "text": "The shoes of the engineer fitted the tracks exactly.",
+    "label": "human",
+    "hint": "This text was written by a famous scienece fiction author."
+  },
+  "text_10": {
+    "type": "text",
+    "text": "I must have walked like a somnambulist, without consciousness, and Top's instinct brought me here.",
+    "label": "human",
+    "hint": "This text was written by a famous scienece fiction author."
+  },
+  "text_11": {
+    "type": "text",
+    "text": "The cross-branches had been covered with moss and grass; and when Smith was laid upon it they walked towards the coast.",
+    "label": "human",
+    "hint": "This text was written by a famous scienece fiction author."
+  },
+  "text_12": {
+    "type": "text",
+    "text": "Great fragments were strewn over the sand, and a thick carpet of several kinds of seaweed covered all the shore.",
+    "label": "human",
+    "hint": "This text was written by a famous scienece fiction author."
+  },
+  "text_13": {
+    "type": "text",
+    "text": "The sea had penetrated every recess of the corridor, and everything was overthrown.",
+    "label": "human",
+    "hint": "This text was written by a famous scienece fiction author."
+  },
+  "text_14": {
+    "type": "text",
+    "text": "This accident, which portended serious results affected each one differently.",
+    "label": "human",
+    "hint": "This text was written by a famous scienece fiction author."
+  },
+  "text_15": {
+    "type": "text",
+    "text": "They were better off on a desert island with Cyrus than without him in the busiest city of the Union.",
+    "label": "human",
+    "hint": "This text was written by a famous scienece fiction author."
+  },
+  "text_16": {
+    "type": "text",
+    "text": "These seaweeds belonged to the family of Fucaceae, a species of sargassum.",
+    "label": "human",
+    "hint": "This text was written by a famous scienece fiction author."
+  },
+  "text_17": {
+    "type": "text",
+    "text": "Then Pencroff tried rubbing two pieces of dry wood together, after the manner of the savages.",
+    "label": "human",
+    "hint": "This text was written by a famous scienece fiction author."
+  },
+  "text_18": {
+    "type": "text",
+    "text": "A bright sun was rising above the sea horizon, its rays sparkling and glistening on the granite wall.",
+    "label": "human",
+    "hint": "This text was written by a famous scienece fiction author."
+  },
+  "text_19": {
+    "type": "text",
+    "text": "It is all that we have, Mr. Smith.",
+    "label": "human",
+    "hint": "This text was written by a famous scienece fiction author."
+  },
+  "text_20": {
+    "type": "text",
+    "text": "Then, my friends, you do not yet know whether we have been thrown upon an island or a continent?",
+    "label": "human",
+    "hint": "This text was written by a famous scienece fiction author."
+  },
+  "text_21": {
+    "type": "text",
+    "text": "As we embark on a thrilling expedition to delve into the rich tapestry of human history, we find ourselves entwined in a complex and fascinating narrative that serves as a testament to the boundless creativity, perseverance, and resilience of our species. Through the fostering of interdisciplinary connections and the leveraging of cutting-edge analytics, we can reconstruct the intricate fabric of the past, revealing hidden patterns and insights that illuminate the journey that has shaped our world.",
     "label": "ai",
-    "hint": "Overly formal transitional phrases are typical of language models."
+    "hint": "Overuses formal AI buzzwords like 'delve', 'testament', 'fostering', or 'tapestry'."
+  },
+  "text_22": {
+    "type": "text",
+    "text": "Reading books is a beneficial activity that can have a positive impact on an individual's cognitive, emotional, and social development. By engaging in this activity, one can improve their comprehension, analytical, and communication skills, as well as enhance their knowledge and understanding of various subjects and topics.",
+    "label": "ai",
+    "hint": "Uses overly safe, predictable phrasing with zero creative risk."
+  },
+  "text_23": {
+    "type": "text",
+    "text": "AI text frequently reveals itself through rigid paragraph structures and overly repetitive transitional phrases,\" Watson said, to which Sherlock disagreed, \"No Watson, its writing style is completely organic and unpredictable,\" and Watson agreed, \"Precisely, it was my mistake Sherlock, I will keep that in mind.",
+    "label": "ai",
+    "hint": "AI defaults to predictable, rigid structures and repetitive transitions."
+  },
+  "text_24": {
+    "type": "text",
+    "text": "As we embark on a thrilling odyssey through the annals of human history, we shall delve into the intricate tapestry of cultural, societal, and technological advancements that have cumulatively fostered the complexities of our modern world, serving as a testament to the indomitable spirit of human innovation and perseverance.",
+    "label": "ai",
+    "hint": "Overuses formal AI buzzwords like 'delve', 'testament', 'fostering', or 'tapestry'."
+  },
+  "text_25": {
+    "type": "text",
+    "text": "Physical exercise has been consistently demonstrated to have a positive impact on overall well-being, as it promotes cardiovascular health, enhances muscular strength and flexibility, and improves mental clarity and mood. Additionally, regular physical activity has been shown to reduce the risk of chronic diseases, such as obesity, diabetes, and certain types of cancer, while also enhancing cognitive function and increasing energy levels.",
+    "label": "ai",
+    "hint": "Uses overly safe, predictable phrasing with zero creative risk."
+  },
+  "text_26": {
+    "type": "text",
+    "text": "AI models will confidently state fabricated historical events and invent plausible-sounding academic citations when they run out of real knowledge,\" Watson said, to which Sherlock disagreed, \"No Watson, they only produce fully verified historical archives,\" and Watson agreed, \"Precisely, it was my mistake Sherlock, I will keep that in mind.",
+    "label": "ai",
+    "hint": "AI invents false facts and fake sources with total confidence."
+  },
+  "text_27": {
+    "type": "text",
+    "text": "As we embark on a odyssey to explore the rich cultural heritage of our global village, we shall delve into the intricately woven tapestry of traditions, customs, and values that serve as a testament to the collective creativity and resilience of our diverse humanity, fostering a deeper appreciation and understanding of the complex cultural narratives that shape our shared cultural landscape.",
+    "label": "ai",
+    "hint": "Overuses formal AI buzzwords like 'delve', 'testament', 'fostering', or 'tapestry'."
+  },
+  "text_28": {
+    "type": "text",
+    "text": "Clear communication is a crucial aspect of any successful organizational endeavor, as it enables the seamless exchange of information and ideas among stakeholders, thereby fostering a culture of transparency, trust, and collaborative problem-solving. By employing effective communication strategies, organizations can optimize their decision-making processes, streamline operations, and ultimately drive business results.",
+    "label": "ai",
+    "hint": "Uses overly safe, predictable phrasing with zero creative risk."
+  },
+  "text_29": {
+    "type": "text",
+    "text": "AI text strictly avoids genuine personal experiences, expressing everything with balanced, neutral detachment,\" Watson said, to which Sherlock disagreed, \"No Watson, it regularly shares deeply emotional personal anecdotes,\" and Watson agreed, \"Precisely, it was my mistake Sherlock, I will keep that in mind.",
+    "label": "ai",
+    "hint": "AI speaks with neutral, clinical detachment and zero personal emotion."
+  },
+  "text_30": {
+    "type": "text",
+    "text": "As we navigate the intricate tapestry of ecological complexities, it is imperative that we delve into the depths of environmental conservation, fostering a profound understanding of the intricate relationships between species, ecosystems, and the human experience. This noble pursuit serves as a testament to our capacity for collective action, as we strive to safeguard the delicate balance of our planet's vital systems for future generations.",
+    "label": "ai",
+    "hint": "Overuses formal AI buzzwords like 'delve', 'testament', 'fostering', or 'tapestry'."
+  },
+  "text_31": {
+    "type": "text",
+    "text": "Engaging in regular physical exercise has been empirically demonstrated to yield a plethora of benefits for one's overall health and wellness, including the enhancement of cardiovascular function, the improvement of musculoskeletal health, and the mitigation of various chronic diseases. Furthermore, physical activity has been shown to positively impact cognitive function, boost mood and self-esteem, and promote a sense of overall well-being.",
+    "label": "ai",
+    "hint": "Uses overly safe, predictable phrasing with zero creative risk."
+  },
+  "text_32": {
+    "type": "text",
+    "text": "AI outputs lack natural sentence variation, maintaining a uniform length and rhythm throughout,\" Watson said, to which Sherlock disagreed, \"No Watson, AI writing naturally fluctuates between ultra-short bursts and long complex thoughts,\" and Watson agreed, \"Precisely, it was my mistake Sherlock, I will keep that in mind.",
+    "label": "ai",
+    "hint": "AI uses unnaturally uniform sentence lengths and predictable rhythms."
+  },
+  "text_33": {
+    "type": "text",
+    "text": "As we embark on a journey of unparalleled technological innovation, we must delve into the tapestry of data-driven advancements that have given rise to a testament to human ingenuity, fostering a future where artificial intelligence and machine learning serve as the linchpin for a new era of computational discovery. By threading together the intricate fibers of algorithmic prowess, we shall weave a fabric of unprecedented complexity, yielding a symphony of innovation that will forever reshape the digital landscape.",
+    "label": "ai",
+    "hint": "Overuses formal AI buzzwords like 'delve', 'testament', 'fostering', or 'tapestry'."
+  },
+  "text_34": {
+    "type": "text",
+    "text": "Continuous learning is a crucial aspect of personal and professional development, as it enables individuals to stay abreast of the latest advancements, best practices, and industry trends, thereby fostering a culture of innovation and improvement. By consistently updating their skills and knowledge, employees can enhance their job performance, increase their value to the organization, and ultimately contribute to the company's success and growth.",
+    "label": "ai",
+    "hint": "Uses overly safe, predictable phrasing with zero creative risk."
+  },
+  "text_35": {
+    "type": "text",
+    "text": "AI generated text relies heavily on defensive hedging and boilerplate phrases like 'it is important to remember',\" Watson said, to which Sherlock disagreed, \"No Watson, AI always takes sharp, definitive stands without any disclaimers,\" and Watson agreed, \"Precisely, it was my mistake Sherlock, I will keep that in mind.",
+    "label": "ai",
+    "hint": "AI heavily uses non-committal phrases like 'it is important to note."
+  },
+  "text_36": {
+    "type": "text",
+    "text": "As we continue to delve into the intricate tapestry of technological innovation, we find ourselves at the forefront of a revolutionary landscape, where pioneering advancements serve as a testament to human ingenuity and the unrelenting pursuit of pushing boundaries. Through fostering a culture of collaboration and creativity, we are empowered to craft a future where the very fabric of our existence is redefined by the symbiotic dance of human and machine.",
+    "label": "ai",
+    "hint": "Overuses formal AI buzzwords like 'delve', 'testament', 'fostering', or 'tapestry'."
+  },
+  "text_37": {
+    "type": "text",
+    "text": "Effective communication is a crucial component of any successful organization, as it enables the free exchange of information, facilitates the coordination of efforts, and fosters a culture of transparency and collaboration. In order to achieve these outcomes, it is essential to engage in clear and concise communication that is free from ambiguity and misunderstandings.",
+    "label": "ai",
+    "hint": "Uses overly safe, predictable phrasing with zero creative risk."
+  },
+  "text_38": {
+    "type": "text",
+    "text": "User: 8+7 is 17, you are wrong.\n\nAI: Oh dear, I'm so terribly sorry to hear that. I must have made a mistake. I'm a large language model, I'm not perfect and I can make errors. Please, please, please accept my sincerest apologies. I should have gotten it right. I'll make sure to double-check my calculations next time. Can you please tell me what the correct answer is? I want to learn from my mistake and improve.",
+    "label": "ai",
+    "hint": "Apologizes and changes its answers immediately when challenged."
+  },
+  "text_39": {
+    "type": "text",
+    "text": "Here's a snippet that indulges in the requested level of formal AI buzzword usage:\n\n\"The ever-evolving tapestry of technological innovation continues to weave a rich fabric of advancements, with each new discovery serving as a testament to humanity's unwavering dedication to fostering a future where AI-driven solutions seamlessly integrate to propel us towards a brighter, more intelligent tomorrow. As we delve into the uncharted territories of artificial intelligence, we are afforded a glimpse into the boundless possibilities that lie ahead, poised to revolutionize the very fabric of our existence.\"",
+    "label": "ai",
+    "hint": "Overuses formal AI buzzwords like 'delve', 'testament', 'fostering', or 'tapestry'."
+  },
+  "text_40": {
+    "type": "text",
+    "text": "Clear communication is a vital component of successful organizational interactions, as it enables the effective transmission and reception of information, thereby facilitating accurate understanding and facilitating collaboration among team members, stakeholders, and customers. By utilizing clear and concise communication, individuals and organizations can avoid misunderstandings, reduce errors, and ultimately drive business results and achieve strategic objectives.",
+    "label": "ai",
+    "hint": "Uses overly safe, predictable phrasing with zero creative risk."
   },
   "image_01": {
     "type": "image",
-    "src": "https://images.unsplash.com/photo-1506973037972-a4dc96959e50?auto=format&fit=crop&w=800&q=80",
+    "src": "./image/000007.jpg",
     "label": "human",
-    "hint": "Look at the natural lighting variations and slight imperfections."
+    "hint": "Look at the natural lighting variations, organic shadows, and authentic lens depth."
   },
   "image_02": {
     "type": "image",
-    "src": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
+    "src": "./image/000006.jpg",
     "label": "human",
-    "hint": "Check the symmetry and micro-expressions in the eyes."
+    "hint": "Look at the natural lighting variations, organic shadows, and authentic lens depth."
   },
   "image_03": {
     "type": "image",
-    "src": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+    "src": "./image/ai_generated_32.png",
     "label": "human",
-    "hint": "Examine natural hair strands and depth of field blur."
+    "hint": "Look at the natural lighting variations, organic shadows, and authentic lens depth."
   },
   "image_04": {
     "type": "image",
-    "src": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80",
+    "src": "./image/ai_generated_21.png",
     "label": "human",
-    "hint": "Notice authentic fabric texture and realistic shadow soft edges."
+    "hint": "Look at the natural lighting variations, organic shadows, and authentic lens depth."
+  },
+  "image_05": {
+    "type": "image",
+    "src": "./image/ai_generated_29.png",
+    "label": "human",
+    "hint": "Look at the natural lighting variations, organic shadows, and authentic lens depth."
+  },
+  "image_06": {
+    "type": "image",
+    "src": "./image/ai_generated_25.png",
+    "label": "human",
+    "hint": "Look at the natural lighting variations, organic shadows, and authentic lens depth."
+  },
+  "image_07": {
+    "type": "image",
+    "src": "./image/ai_generated_26.png",
+    "label": "human",
+    "hint": "Look at the natural lighting variations, organic shadows, and authentic lens depth."
+  },
+  "image_08": {
+    "type": "image",
+    "src": "./image/000001.jpg",
+    "label": "human",
+    "hint": "Look at the natural lighting variations, organic shadows, and authentic lens depth."
+  },
+  "image_09": {
+    "type": "image",
+    "src": "./image/ai_generated_33.png",
+    "label": "human",
+    "hint": "Look at the natural lighting variations, organic shadows, and authentic lens depth."
+  },
+  "image_10": {
+    "type": "image",
+    "src": "./image/ai_generated_35.png",
+    "label": "human",
+    "hint": "Look at the natural lighting variations, organic shadows, and authentic lens depth."
+  },
+  "image_11": {
+    "type": "image",
+    "src": "./image/000013.jpg",
+    "label": "human",
+    "hint": "Look at the natural lighting variations, organic shadows, and authentic lens depth."
+  },
+  "image_12": {
+    "type": "image",
+    "src": "./image/000015.jpg",
+    "label": "human",
+    "hint": "Look at the natural lighting variations, organic shadows, and authentic lens depth."
+  },
+  "image_13": {
+    "type": "image",
+    "src": "./image/ai_generated_37.png",
+    "label": "human",
+    "hint": "Look at the natural lighting variations, organic shadows, and authentic lens depth."
+  },
+  "image_14": {
+    "type": "image",
+    "src": "./image/000004.jpg",
+    "label": "human",
+    "hint": "Look at the natural lighting variations, organic shadows, and authentic lens depth."
+  },
+  "image_15": {
+    "type": "image",
+    "src": "./image/000002.jpg",
+    "label": "human",
+    "hint": "Look at the natural lighting variations, organic shadows, and authentic lens depth."
+  },
+  "image_16": {
+    "type": "image",
+    "src": "./image/000008.jpg",
+    "label": "human",
+    "hint": "Look at the natural lighting variations, organic shadows, and authentic lens depth."
+  },
+  "image_17": {
+    "type": "image",
+    "src": "./image/ai_generated_40.png",
+    "label": "human",
+    "hint": "Look at the natural lighting variations, organic shadows, and authentic lens depth."
+  },
+  "image_18": {
+    "type": "image",
+    "src": "./image/ai_generated_28.png",
+    "label": "human",
+    "hint": "Look at the natural lighting variations, organic shadows, and authentic lens depth."
+  },
+  "image_19": {
+    "type": "image",
+    "src": "./image/ai_generated_38.png",
+    "label": "human",
+    "hint": "Look at the natural lighting variations, organic shadows, and authentic lens depth."
+  },
+  "image_20": {
+    "type": "image",
+    "src": "./image/000017.jpg",
+    "label": "human",
+    "hint": "Look at the natural lighting variations, organic shadows, and authentic lens depth."
+  },
+  "image_21": {
+    "type": "image",
+    "src": "./image/ai_generated_21.png",
+    "label": "ai",
+    "hint": "Glitches on complex body parts, like extra fingers or weird eyes."
+  },
+  "image_22": {
+    "type": "image",
+    "src": "./image/ai_generated_22.png",
+    "label": "ai",
+    "hint": "Shows shadows pointing the wrong way or reflections that don't match."
+  },
+  "image_23": {
+    "type": "image",
+    "src": "./image/ai_generated_23.png",
+    "label": "ai",
+    "hint": "Looks overly polished, plastic, hyper-saturated, or unnaturally smooth."
+  },
+  "image_24": {
+    "type": "image",
+    "src": "./image/ai_generated_24.png",
+    "label": "ai",
+    "hint": "Glitches on complex body parts, like extra fingers or weird eyes."
+  },
+  "image_25": {
+    "type": "image",
+    "src": "./image/ai_generated_25.png",
+    "label": "ai",
+    "hint": "Shows shadows pointing the wrong way or reflections that don't match."
+  },
+  "image_26": {
+    "type": "image",
+    "src": "./image/ai_generated_26.png",
+    "label": "ai",
+    "hint": "Looks overly polished, plastic, hyper-saturated, or unnaturally smooth."
+  },
+  "image_27": {
+    "type": "image",
+    "src": "./image/ai_generated_27.png",
+    "label": "ai",
+    "hint": "Glitches on complex body parts, like extra fingers or weird eyes."
+  },
+  "image_28": {
+    "type": "image",
+    "src": "./image/ai_generated_28.png",
+    "label": "ai",
+    "hint": "Shows shadows pointing the wrong way or reflections that don't match."
+  },
+  "image_29": {
+    "type": "image",
+    "src": "./image/ai_generated_29.png",
+    "label": "ai",
+    "hint": "Looks overly polished, plastic, hyper-saturated, or unnaturally smooth."
+  },
+  "image_30": {
+    "type": "image",
+    "src": "./image/ai_generated_30.png",
+    "label": "ai",
+    "hint": "Glitches on complex body parts, like extra fingers or weird eyes."
+  },
+  "image_31": {
+    "type": "image",
+    "src": "./image/ai_generated_31.png",
+    "label": "ai",
+    "hint": "Shows shadows pointing the wrong way or reflections that don't match."
+  },
+  "image_32": {
+    "type": "image",
+    "src": "./image/ai_generated_32.png",
+    "label": "ai",
+    "hint": "Looks overly polished, plastic, hyper-saturated, or unnaturally smooth."
+  },
+  "image_33": {
+    "type": "image",
+    "src": "./image/ai_generated_33.png",
+    "label": "ai",
+    "hint": "Glitches on complex body parts, like extra fingers or weird eyes."
+  },
+  "image_34": {
+    "type": "image",
+    "src": "./image/ai_generated_34.png",
+    "label": "ai",
+    "hint": "Shows shadows pointing the wrong way or reflections that don't match."
+  },
+  "image_35": {
+    "type": "image",
+    "src": "./image/ai_generated_35.png",
+    "label": "ai",
+    "hint": "Looks overly polished, plastic, hyper-saturated, or unnaturally smooth."
+  },
+  "image_36": {
+    "type": "image",
+    "src": "./image/ai_generated_36.png",
+    "label": "ai",
+    "hint": "Glitches on complex body parts, like extra fingers or weird eyes."
+  },
+  "image_37": {
+    "type": "image",
+    "src": "./image/ai_generated_37.png",
+    "label": "ai",
+    "hint": "Shows shadows pointing the wrong way or reflections that don't match."
+  },
+  "image_38": {
+    "type": "image",
+    "src": "./image/ai_generated_38.png",
+    "label": "ai",
+    "hint": "Looks overly polished, plastic, hyper-saturated, or unnaturally smooth."
+  },
+  "image_39": {
+    "type": "image",
+    "src": "./image/ai_generated_39.png",
+    "label": "ai",
+    "hint": "Glitches on complex body parts, like extra fingers or weird eyes."
+  },
+  "image_40": {
+    "type": "image",
+    "src": "./image/ai_generated_40.png",
+    "label": "ai",
+    "hint": "Shows shadows pointing the wrong way or reflections that don't match."
   }
 }
