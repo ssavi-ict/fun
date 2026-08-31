@@ -86,6 +86,12 @@ async function initApp() {
     initPresenceAndStats();
     updateUI();
     renderHintBoard();
+    
+    // Show the last attempted hint on initial load if attempts exist
+    if (attempts > 0) {
+      showHistoricalHint(attempts - 1);
+    }
+    
     loadItem();
   } catch (err) {
     console.error('Initialization error:', err);
@@ -132,7 +138,7 @@ function renderHintBoard() {
     btn.id = `sticky-note-${i}`;
     btn.textContent = String(i + 1).padStart(2, '0');
 
-    // Unlocked if question was attempted OR if user requested hint before answering
+    // Unlocked if question was attempted OR if user explicitly unlocked hint
     const isUnlocked = i < attempts || unlockedHints.includes(i);
 
     if (isUnlocked) {
@@ -195,7 +201,7 @@ function loadItem() {
     yesBtn.disabled = true;
     noBtn.disabled = true;
     hintBtn.disabled = true;
-    hintBtn.classList.add('hidden');
+    hintBtn.classList.add('hidden'); // Ensure hint prompt box is hidden upon game completion
     showCongratsModal();
     return;
   }
@@ -248,10 +254,19 @@ function checkAnswer(isYes) {
     stampEl.classList.add('incorrect');
   }
 
+  // Always unlock and automatically show the hint for the attempted question
+  if (!unlockedHints.includes(attempts)) {
+    unlockedHints.push(attempts);
+    sessionStorage.setItem('unlockedHints', JSON.stringify(unlockedHints));
+  }
+
   stampEl.classList.add('show');
   attempts++;
   updateUI();
   renderHintBoard();
+  
+  // Show hint on hint board immediately after answering
+  showHistoricalHint(attempts - 1);
 
   setTimeout(() => {
     if (attempts < config.totalRounds) {
@@ -259,6 +274,7 @@ function checkAnswer(isYes) {
     } else {
       bonusToastEl.classList.remove('show');
       feedbackEl.textContent += ' Case closed.';
+      hintBtn.classList.add('hidden'); // Hide hint section when final question finishes
       showCongratsModal();
     }
   }, 1800);
@@ -331,6 +347,7 @@ hintBtn.onclick = () => {
     unlockedHints.push(attempts);
     sessionStorage.setItem('unlockedHints', JSON.stringify(unlockedHints));
     renderHintBoard();
+    showHistoricalHint(attempts);
   }
 };
 
